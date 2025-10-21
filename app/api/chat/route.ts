@@ -1,17 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getModel, SYSTEM_PROMPT } from "@/lib/gemini";
 import { isCrisis } from "@/lib/safety";
-import { limit } from "@/lib/rateLimit";
+// import { limit } from "@/lib/rateLimit";
 
 export async function POST(req: NextRequest) {
   try {
     // Rate limiting
-    const limited = await limit(req);
+    // const limited = await limit(req);
     if (!limited.ok) {
-      return NextResponse.json(
+      // return NextResponse.json(
         { error: "Demasiadas solicitudes. Por favor espera un momento e intenta de nuevo." },
         { status: 429 }
-      );
+      // );
     }
 
     const { message } = await req.json();
