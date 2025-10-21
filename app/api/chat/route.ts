@@ -7,12 +7,12 @@ export async function POST(req: NextRequest) {
   try {
     // Rate limiting
     // const limited = await limit(req);
-    if (!limited.ok) {
+    // if (!limited.ok) {
       // return NextResponse.json(
-        { error: "Demasiadas solicitudes. Por favor espera un momento e intenta de nuevo." },
-        { status: 429 }
+      //   { error: "Demasiadas solicitudes. Por favor espera un momento e intenta de nuevo." },
+      //   { status: 429 }
       // );
-    }
+    // }
 
     const { message } = await req.json();
     if (!message || typeof message !== "string") {
